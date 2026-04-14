@@ -9,7 +9,7 @@
   "orientation": "orthogonal",
   "renderorder": "right-down",
   "infinite": false,
-  "nextlayerid": 5,
+  "nextlayerid": 6,
   "nextobjectid": 10,
   "tilesets": [
     {
@@ -100,6 +100,16 @@
         2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
         2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
       ]
+    },
+    {
+      "type": "objectgroup",
+      "id": 5,
+      "name": "floorLayer",
+      "x": 0,
+      "y": 0,
+      "opacity": 1,
+      "visible": true,
+      "objects": []
     },
     {
       "type": "objectgroup",
