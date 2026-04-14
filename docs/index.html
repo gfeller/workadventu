@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorkAdventu</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #0f0e17;
+      color: #fffffe;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 2rem 1rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(99, 179, 237, 0.15) 0%, transparent 70%);
+    }
+
+    .logo {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      background: linear-gradient(90deg, #63b3ed, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+
+    .tagline {
+      margin-top: 0.75rem;
+      font-size: 1.2rem;
+      color: #a8b2d8;
+      position: relative;
+    }
+
+    .cta-group {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #63b3ed, #a78bfa);
+      color: #0f0e17;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #63b3ed;
+      border: 2px solid #63b3ed;
+    }
+
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      width: 100%;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #fffffe;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .feature-card {
+      background: #1a1a2e;
+      border: 1px solid #2d3561;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: #63b3ed;
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fffffe;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.92rem;
+      color: #a8b2d8;
+      line-height: 1.6;
+    }
+
+    .getting-started {
+      background: #1a1a2e;
+      border: 1px solid #2d3561;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .getting-started h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: #fffffe;
+    }
+
+    .step-list {
+      list-style: none;
+      counter-reset: steps;
+    }
+
+    .step-list li {
+      counter-increment: steps;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      color: #a8b2d8;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .step-list li::before {
+      content: counter(steps);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.75rem;
+      height: 1.75rem;
+      background: linear-gradient(135deg, #63b3ed, #a78bfa);
+      border-radius: 50%;
+      color: #0f0e17;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    code {
+      background: #0f0e17;
+      border: 1px solid #2d3561;
+      border-radius: 0.3rem;
+      padding: 0.1rem 0.4rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.88rem;
+      color: #63b3ed;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #1a1a2e;
+      color: #a8b2d8;
+      font-size: 0.85rem;
+    }
+
+    footer a { color: #63b3ed; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">WorkAdventu</div>
+    <p class="tagline">An open virtual world — explore, collaborate, and play together</p>
+    <div class="cta-group">
+      <a class="btn btn-primary" href="https://github.com/gfeller/workadventu">View on GitHub</a>
+      <a class="btn btn-secondary" href="https://github.com/gfeller/workadventu/blob/main/README.md">Documentation</a>
+    </div>
+  </header>
+
+  <main>
+
+    <h2 class="section-title">Features</h2>
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3>Virtual Worlds</h3>
+        <p>Build and explore custom virtual spaces with tile-based maps designed for interaction.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎮</div>
+        <h3>Real-time Multiplayer</h3>
+        <p>Move your avatar, meet others, and trigger video/audio conversations by walking up to people.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <h3>Integrations</h3>
+        <p>Embed websites, trigger scripts, and connect external services directly from within the world.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛠️</div>
+        <h3>Open Source</h3>
+        <p>Fully open source and self-hostable. Customize every aspect to fit your community or workspace.</p>
+      </div>
+    </div>
+
+    <div class="getting-started">
+      <h2>Getting Started</h2>
+      <ol class="step-list">
+        <li>Clone the repository: <code>git clone https://github.com/gfeller/workadventu.git</code></li>
+        <li>Install dependencies and set up the project as described in the README.</li>
+        <li>Configure your maps and launch the server.</li>
+        <li>Share the link with your team and start adventuring!</li>
+      </ol>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>
+      Built with ❤️ &mdash;
+      <a href="https://github.com/gfeller/workadventu">gfeller/workadventu</a> on GitHub
+    </p>
+  </footer>
+
+</body>
+</html>
